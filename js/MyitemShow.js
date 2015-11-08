@@ -16,14 +16,24 @@ app.controller('MyitemShow', function($scope, $http) {
         .success(function(response) {
             $scope.items = response;
         });
-    $scope.deleteItem = function (dIndex) {
-    $scope.items.splice(dIndex, 1);
-    var ye = $scope.items
-    delItem(dIndex)
+    $scope.deleteItem = function(dIndex) {
+        $scope.items.splice(dIndex);
+        var ye = $scope.items
+        delItem(dIndex)
     }
-    function  delItem(dIndex) {
-        
-  alert(dIndex)
-  $http.delete("json.php", [dIndex] )
+
+
+    function delItem(dIndex) {
+
+        alert(dIndex)
+        $http.delete("delete.php",{
+
+            'dIndex': $scope.dIndex 
+
+        }).success(function(dIndex) {
+
+            console.log('delete?');
+        });
     }
+
 });
