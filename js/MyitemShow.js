@@ -12,13 +12,18 @@ app.controller('MyitemShow', function($scope, $http) {
     for (var i = 0; i < 24; i++) {
         $scope.data.push("Item " + i);
     }
-
-
     $http.get("json.php")
         .success(function(response) {
             $scope.items = response;
         });
-
-
-
+    $scope.deleteItem = function (dIndex) {
+    $scope.items.splice(dIndex, 1);
+    var ye = $scope.items
+    delItem(dIndex)
+    }
+    function  delItem(dIndex) {
+        
+  alert(dIndex)
+  $http.delete("json.php", [dIndex] )
+    }
 });

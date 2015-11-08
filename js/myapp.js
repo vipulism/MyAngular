@@ -42,6 +42,7 @@
 
                 console.log('hogya');
                 clearTxt();
+                
 
             })
 

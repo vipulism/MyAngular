@@ -33,9 +33,9 @@
     <section ng-controller="MyitemShow">
  
 <div ng-repeat="item in items"  >
- {{ item.first_name }}
+ {{ item.first_name }} <button ng-click="deleteItem($index);">x</button>
 </div>
- 
+ <strong>{{ fname }}</strong>
  
 </section>
     <!-- <script>
