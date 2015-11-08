@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myApp" lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Angular + PHP</title>
     <script src="js/jquery.min.js"></script>
     <script src="js/angular.js"></script>
-    <!-- <script src="js/angular.js"></script>	 -->
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/xml2json.min.js"></script>
+    <script src="js/angular-xml.min.js"></script>
+    <script src="js/myapp.js"></script>
+    <script src="js/MyitemShow.js"></script>
+    <!-- <script src="js/angular.js"></script>   -->
 </head>
 
 <body>
-    <div ng-app="myapp" ng-controller="empcontroller">
+    <div ng-controller="formCtr">
         <form>
             <input type="text" placeholder="Employee ID" required ng-model="empno" />
             <br>
@@ -22,16 +27,27 @@
             <br>
             <input type="button" value="submit" ng-click="submit()" />
         </form>
-        <script>
+<br>
+        <hr>
+        <br>
+    <section ng-controller="MyitemShow">
+ 
+<div ng-repeat="item in items"  >
+ {{ item.first_name }}
+</div>
+ 
+ 
+</section>
+    <!-- <script>
         var app = angular.module('myapp', []);
-        app.controller('empcontroller', function($scope, $http) {
-
-
-
+        app.controller('customersCtrl', function($scope, $http) {
+        
+        
+        
             $scope.submit = function() {
-
+        
                 validateFirst();
-
+        
                 function inputValid() {
                     var valid = true;
                     $("input").each(function() {
@@ -42,41 +58,41 @@
                     return valid;
                 }
                 if (!inputValid()) {
-
+        
                     console.log('nanana na!!')
-
+        
                 } else {
-
+        
                     $http.post("insert.php", {
                         'empno': $scope.empno,
                         'fname': $scope.fname,
                         'lname': $scope.lname,
                         'dept': $scope.dept,
                     }).success(function(data, status, headers, config) {
-
+        
                         console.log('hogya');
                         clearTxt();
-
+        
                     })
-
+        
                 }
-
-
+        
+        
             }
-
+        
         });
-
+        
         function validateFirst() {
-
+        
             console.log('validating');
-
+        
         }
-
+        
         function clearTxt() {
             $('form')[0].reset();
             // $('.myform').find("input[type=text], textarea").val("");
         }
-        </script>
+        </script> -->
     </div>
 </body>
 
