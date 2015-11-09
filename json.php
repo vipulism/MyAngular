@@ -1,20 +1,17 @@
 <?php
 
-	header('Content-type:application/json');
+$mysqli = new mysqli('localhost','root','','company');
+$myArray = array();
+if ($result = $mysqli->query("SELECT * FROM employee")) {
 
-	mysql_connect('localhost', 'root', '') or die( mysql_error());
-	
-	
-	mysql_select_db('company')  or die( mysql_error());
+    while($row = $result->fetch_array(MYSQL_ASSOC)) {
+            $myArray[] = $row;
+    }
+    echo json_encode($myArray);
+}
 
-	$select = mysql_query("SELECT * FROM `employee`");
- 
-	$rows=array();
+$result->close();
+$mysqli->close();
 
-	while($row=mysql_fetch_array($select)) 
-	{
-		$rows[] = $row;
-	}
-	
-	echo json_encode($rows);
+
  ?>
