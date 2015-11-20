@@ -17,23 +17,29 @@ app.controller('MyitemShow', function($scope, $http) {
             $scope.items = response;
         });
     $scope.deleteItem = function(dIndex) {
+         dIndex = dIndex - 1;
         $scope.items.splice(dIndex);
-        var ye = $scope.items
         delItem(dIndex)
+
     }
 
 
     function delItem(dIndex) {
 
         alert(dIndex)
-        $http.delete("delete.php",{
+        $http.post("delete.php", {
 
-            'dIndex': $scope.dIndex 
+            'dIndex': dIndex,
 
         }).success(function(dIndex) {
 
             console.log('delete?');
         });
+
+   /*     $http({
+            method: "delete"
+
+        })*/
     }
 
 });

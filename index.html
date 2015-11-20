@@ -11,7 +11,6 @@
     <script src="js/angular-xml.min.js"></script>
     <script src="js/myapp.js"></script>
     <script src="js/MyitemShow.js"></script>
-    <!-- <script src="js/angular.js"></script>   -->
 </head>
 
 <body>
@@ -32,67 +31,14 @@
         <br>
     <section ng-controller="MyitemShow">
  
-<div ng-repeat="item in items"  >
+<div ng-repeat="item in items" >
  {{ item.first_name }}, {{ item.id }} <button ng-click="deleteItem(item.id);">x</button>
 </div>
  <strong>{{ fname }}</strong>
  
 </section>
-    <!-- <script>
-        var app = angular.module('myapp', []);
-        app.controller('customersCtrl', function($scope, $http) {
-        
-        
-        
-            $scope.submit = function() {
-        
-                validateFirst();
-        
-                function inputValid() {
-                    var valid = true;
-                    $("input").each(function() {
-                        if ($(this).val() == "") {
-                            valid = false;
-                        }
-                    });
-                    return valid;
-                }
-                if (!inputValid()) {
-        
-                    console.log('nanana na!!')
-        
-                } else {
-        
-                    $http.post("insert.php", {
-                        'empno': $scope.empno,
-                        'fname': $scope.fname,
-                        'lname': $scope.lname,
-                        'dept': $scope.dept,
-                    }).success(function(data, status, headers, config) {
-        
-                        console.log('hogya');
-                        clearTxt();
-        
-                    })
-        
-                }
-        
-        
-            }
-        
-        });
-        
-        function validateFirst() {
-        
-            console.log('validating');
-        
-        }
-        
-        function clearTxt() {
-            $('form')[0].reset();
-            // $('.myform').find("input[type=text], textarea").val("");
-        }
-        </script> -->
+
+ 
     </div>
 </body>
 
